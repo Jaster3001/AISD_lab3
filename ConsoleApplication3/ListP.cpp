@@ -28,13 +28,14 @@ void destroyPList(ListP* list) {
 
 void addToPList(ListP* list, int value) {
 	Element* adres= newElement(value);
-	Element* ostatni=list->last;
-	if (ostatni != NULL) {
-	ostatni->next = adres;
+	if (list->first == NULL) {
+		list->first = adres;
 	}
+	else if (list->first->next == NULL)
+		list->first->next = adres;
+	else
+		list->last->next = adres;
 	list->last = adres;
-	delete ostatni;
-	delete adres;
 }
 
 Element* search(ListP* list, int value) {;
@@ -45,19 +46,21 @@ Element* search(ListP* list, int value) {;
 		curr = curr->next;
 	}
 	return curr;
-	delete curr;
 }
 
 int getFromPList(ListP* list, int index) {
 	Element* curr = list->first;
-	int w = curr->value;
-	for (int i = 1; i <= index; i++) {
+	int i = 0;
+	while (curr!=NULL&&i<=index) {
+ 
+		if (i == index) {
+			return curr->value;
+			break;
+		}
 		curr = curr->next;
-		w = curr->value;
-	}
-	delete curr;
-	return w;
-
+		i++;	
+}
+	return NaN;
 }
 
 Element* newElement(int value) {
@@ -103,15 +106,21 @@ int sizeP(ListP* list) {
 		return list->rozmiar;
 	return NaN;
 }
-/*
+
 auto_ptr<IteratorP> getPIterator(ListP* list) {
 	IteratorP* wynik = new IteratorP;
-	wynik->lista = list;
+	wynik->list = list;
 	wynik->curr = list->first;
-
+	wynik->counter = 0;
+	return (auto_ptr<IteratorP>) wynik;
 }
 
 int iterateP(IteratorP* iterator) {
-	//Tutaj dokonaj implementacji funkcji
+	Element* e = iterator->curr;
+	if (e == NULL)
+		return NaN;
+	iterator->curr = e->next;
+	iterator->counter=+1;
+
+	return e->value;
 }
-*/

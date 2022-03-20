@@ -115,7 +115,7 @@ void ListPTest() {
 		int tab[] = { 0, 1, 3, 4, 6, 7 };
 		sprawdzPoprawnoscP(myList, tab);
 	}
-/*	cout << "Test iteratora: ";
+	cout << "Test iteratora: ";
 	{
 		int tab[] = { 0, 1, 3, 4, 6, 7 };
 		auto iter = getPIterator(myList);
@@ -136,6 +136,5 @@ void ListPTest() {
 			cout << "OK" << endl;
 		}
 	}
-	*/
 }
 

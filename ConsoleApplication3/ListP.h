@@ -26,5 +26,5 @@ int removeFromPList(ListP* list, int index); //Usunięcie elementu o indeksie in
 int sizeP(ListP* list); //Zwraca rozmiar listy
 void printPList(ListP* list); //Wypisuje elementy listy na ekranie
 
-/*std::auto_ptr<IteratorP> getPIterator(ListP* list); //Pobranie iteratora do listy
-int iterateP(IteratorP* iterator); //Odczytanie kolejnego elementu z listy*/
+std::auto_ptr<IteratorP> getPIterator(ListP* list); //Pobranie iteratora do listy
+int iterateP(IteratorP* iterator); //Odczytanie kolejnego elementu z listy
